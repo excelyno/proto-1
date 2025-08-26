@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Konsultasi Skripsi</title>
+    <!-- Menggunakan Tailwind CSS untuk styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Menggunakan Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icon Library: Lucide Icons -->
+    <script src="https://unpkg.com/lucide-react@latest/dist/lucide-react.js"></script>
+    <script src="https://unpkg.com/lucide-icons@latest/dist/lucide.js"></script>
+
+
+    <style>
+        /* Custom styles untuk font dan elemen lainnya */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Style untuk placeholder kustom */
+        ::placeholder {
+            color: #9ca3af;
+            opacity: 1;
+        }
+        /* Menyembunyikan file input default */
+        #file-upload-input {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Container Utama -->
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
+
+        <!-- Header Halaman -->
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Formulir Konsultasi Skripsi</h1>
+            <p class="mt-2 text-base text-gray-600">Isi detail di bawah ini untuk memulai sesi konsultasi dengan dosen pembimbing Anda.</p>
+        </header>
+
+        <!-- Form Card -->
+        <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-200">
+            <form id="consultation-form" class="space-y-8">
+
+                <!-- 1. Panel Informasi Mahasiswa -->
+                <fieldset>
+                    <legend class="text-xl font-semibold text-gray-900 border-b border-gray-200 pb-3 mb-4 w-full">
+                        Informasi Mahasiswa
+                    </legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                        <div>
+                            <label for="student-name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap <span class="text-red-500">*</span></label>
+                            <input type="text" id="student-name" name="student-name" placeholder="Masukkan nama lengkap Anda" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150" required>
+                        </div>
+                        <div>
+                            <label for="student-nim" class="block text-sm font-medium text-gray-700 mb-1">NIM <span class="text-red-500">*</span></label>
+                            <input type="text" id="student-nim" name="student-nim" placeholder="Masukkan NIM Anda" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150" required>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="supervisor-lecturer" class="block text-sm font-medium text-gray-700 mb-1">Dosen Pembimbing <span class="text-red-500">*</span></label>
+                            <select id="supervisor-lecturer" name="supervisor-lecturer" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 bg-white" required>
+                                <option value="" disabled selected>Pilih dosen pembimbing Anda</option>
+                                <option value="dosen1">Dr. Indah Lestari, M.Kom.</option>
+                                <option value="dosen2">Prof. Dr. Ir. Eko Nugroho, M.T.</option>
+                                <option value="dosen3">Ahmad Zulfikar, S.T., M.Sc.</option>
+                                <option value="dosen4">Dr. Rini Setyawati, S.Si., M.Cs.</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- 2. Panel Detail Konsultasi -->
+                <fieldset>
+                    <legend class="text-xl font-semibold text-gray-900 border-b border-gray-200 pb-3 mb-4 w-full">
+                        Detail Konsultasi
+                    </legend>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="consultation-title" class="block text-sm font-medium text-gray-700 mb-1">Judul / Topik Utama Konsultasi <span class="text-red-500">*</span></label>
+                            <input type="text" id="consultation-title" name="consultation-title" placeholder="Contoh: Konsultasi Bab 1 - Latar Belakang" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150" required>
+                        </div>
+                        <div>
+                            <label for="consultation-chapter" class="block text-sm font-medium text-gray-700 mb-1">Pilih Bab <span class="text-red-500">*</span></label>
+                            <select id="consultation-chapter" name="consultation-chapter" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 bg-white" required>
+                                <option value="" disabled selected>Pilih bab yang akan dikonsultasikan</option>
+                                <option value="bab1">Bab 1: Pendahuluan</option>
+                                <option value="bab2">Bab 2: Tinjauan Pustaka</option>
+                                <option value="bab3">Bab 3: Metodologi</option>
+                                <option value="bab4">Bab 4: Hasil dan Pembahasan</option>
+                                <option value="bab5">Bab 5: Kesimpulan</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- 3. Panel Unggah Dokumen -->
+                <fieldset>
+                    <legend class="text-xl font-semibold text-gray-900 border-b border-gray-200 pb-3 mb-4 w-full">
+                        Unggah Dokumen Skripsi
+                    </legend>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">File Dokumen <span class="text-red-500">*</span></label>
+                        <div id="file-upload-area" class="mt-1 flex justify-center px-6 pt-10 pb-12 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer hover:border-blue-500 transition duration-150 bg-gray-50 hover:bg-blue-50">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <div class="flex text-sm text-gray-600">
+                                    <p class="pl-1">Seret file ke sini, atau <span class="font-semibold text-blue-600">klik untuk memilih</span></p>
+                                </div>
+                                <p class="text-xs text-gray-500">DOCX, PDF (Maks. 10MB)</p>
+                            </div>
+                        </div>
+                        <input id="file-upload-input" type="file" accept=".pdf,.doc,.docx" required>
+                        <!-- Area untuk menampilkan file yang diunggah -->
+                        <div id="file-display-area" class="mt-4 hidden"></div>
+                    </div>
+                </fieldset>
+
+                <!-- 4. Panel Penjelasan -->
+                <fieldset>
+                    <legend class="text-xl font-semibold text-gray-900 border-b border-gray-200 pb-3 mb-4 w-full">
+                        Pesan atau Poin Konsultasi
+                    </legend>
+                    <div>
+                        <label for="consultation-message" class="block text-sm font-medium text-gray-700 mb-1">Penjelasan <span class="text-red-500">*</span></label>
+                        <textarea id="consultation-message" name="consultation-message" rows="8" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Jelaskan poin-poin yang ingin Anda diskusikan secara detail..." required></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- 5. Tombol Aksi -->
+                <div class="pt-5 border-t border-gray-200">
+                    <div class="flex justify-end">
+                        <button id="submit-button" type="submit" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed transition duration-150">
+                            <span id="submit-button-text">Kirim Konsultasi</span>
+                            <svg id="submit-spinner" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Notifikasi Sukses -->
+    <div id="success-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div class="mt-3 text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                    <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900 mt-2">Konsultasi Berhasil Dikirim!</h3>
+                <div class="mt-2 px-7 py-3">
+                    <p class="text-sm text-gray-500">
+                        Data konsultasi Anda telah berhasil dikirim. Anda akan menerima notifikasi email sebagai konfirmasi.
+                    </p>
+                </div>
+                <div class="items-center px-4 py-3">
+                    <button id="close-modal-button" class="px-4 py-2 bg-green-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300">
+                        Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Inisialisasi elemen-elemen dari DOM
+        const form = document.getElementById('consultation-form');
+        const studentNameInput = document.getElementById('student-name');
+        const studentNimInput = document.getElementById('student-nim');
+        const supervisorLecturerSelect = document.getElementById('supervisor-lecturer');
+        const titleInput = document.getElementById('consultation-title');
+        const chapterSelect = document.getElementById('consultation-chapter');
+        const fileUploadArea = document.getElementById('file-upload-area');
+        const fileInput = document.getElementById('file-upload-input');
+        const fileDisplayArea = document.getElementById('file-display-area');
+        const messageTextarea = document.getElementById('consultation-message');
+        const submitButton = document.getElementById('submit-button');
+        const submitButtonText = document.getElementById('submit-button-text');
+        const submitSpinner = document.getElementById('submit-spinner');
+        const successModal = document.getElementById('success-modal');
+        const closeModalButton = document.getElementById('close-modal-button');
+
+
+        // --- LOGIKA VALIDASI FORM & STATUS TOMBOL ---
+        const requiredFields = [studentNameInput, studentNimInput, supervisorLecturerSelect, titleInput, chapterSelect, fileInput, messageTextarea];
+
+        function checkFormValidity() {
+            // Cek apakah semua field yang wajib diisi sudah memiliki nilai
+            const allValid = requiredFields.every(field => {
+                if (field.type === 'file') {
+                    return field.files.length > 0;
+                }
+                return field.value.trim() !== '';
+            });
+
+            // Aktifkan atau nonaktifkan tombol submit berdasarkan validitas form
+            submitButton.disabled = !allValid;
+        }
+
+        // Tambahkan event listener ke setiap field untuk memeriksa validitas saat ada perubahan
+        requiredFields.forEach(field => {
+            field.addEventListener('input', checkFormValidity);
+            field.addEventListener('change', checkFormValidity);
+        });
+
+        // Panggil fungsi sekali di awal untuk menonaktifkan tombol
+        checkFormValidity();
+
+
+        // --- LOGIKA UNGGAH FILE (DRAG & DROP) ---
+        // Mencegah perilaku default browser saat file di-drag
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            fileUploadArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        // Menambahkan highlight saat file di-drag ke area upload
+        ['dragenter', 'dragover'].forEach(eventName => {
+            fileUploadArea.addEventListener(eventName, () => fileUploadArea.classList.add('border-blue-500', 'bg-blue-50'), false);
+        });
+
+        // Menghapus highlight saat file meninggalkan area upload
+        ['dragleave', 'drop'].forEach(eventName => {
+            fileUploadArea.addEventListener(eventName, () => fileUploadArea.classList.remove('border-blue-500', 'bg-blue-50'), false);
+        });
+
+        // Menangani file yang di-drop
+        fileUploadArea.addEventListener('drop', handleDrop, false);
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles(files);
+        }
+
+        // Membuka dialog file saat area upload diklik
+        fileUploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Menangani file yang dipilih melalui dialog
+        fileInput.addEventListener('change', function() {
+            handleFiles(this.files);
+        });
+
+        function handleFiles(files) {
+            if (files.length === 0) {
+                return;
+            }
+            // Kita hanya proses satu file
+            const file = files[0];
+
+            // Validasi ukuran file (maks 10MB)
+            if (file.size > 10 * 1024 * 1024) {
+                alert('Ukuran file terlalu besar. Maksimal 10MB.');
+                return;
+            }
+            
+            // Validasi tipe file
+            const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+            if (!allowedTypes.includes(file.type)) {
+                alert('Tipe file tidak valid. Harap unggah file DOCX atau PDF.');
+                return;
+            }
+
+            // Set file ke input file agar terdeteksi oleh validasi form
+            fileInput.files = files;
+            
+            // Tampilkan informasi file yang diunggah
+            displayFileInfo(file);
+            checkFormValidity(); // Periksa kembali validitas form setelah file diunggah
+        }
+
+        function displayFileInfo(file) {
+            const fileSize = (file.size / 1024 / 1024).toFixed(2); // Ukuran dalam MB
+            fileDisplayArea.innerHTML = `
+                <div class="flex items-center justify-between p-3 bg-gray-100 border border-gray-200 rounded-lg">
+                    <div class="flex items-center space-x-3">
+                        <svg class="h-6 w-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        <div>
+                            <p class="text-sm font-medium text-gray-800">${file.name}</p>
+                            <p class="text-xs text-gray-500">${fileSize} MB</p>
+                        </div>
+                    </div>
+                    <button type="button" id="remove-file-btn" class="text-gray-500 hover:text-red-600">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+            `;
+            fileDisplayArea.classList.remove('hidden');
+
+            // Tambahkan event listener untuk tombol hapus file
+            document.getElementById('remove-file-btn').addEventListener('click', () => {
+                fileInput.value = ''; // Hapus file dari input
+                fileDisplayArea.innerHTML = '';
+                fileDisplayArea.classList.add('hidden');
+                checkFormValidity(); // Periksa kembali validitas form
+            });
+        }
+
+
+        // --- LOGIKA SUBMIT FORM ---
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah form submit secara default
+
+            // Tampilkan loading spinner
+            submitButtonText.classList.add('hidden');
+            submitSpinner.classList.remove('hidden');
+            submitButton.disabled = true;
+
+            // Simulasi proses pengiriman data ke backend (misalnya 2 detik)
+            setTimeout(() => {
+                // Sembunyikan loading spinner
+                submitButtonText.classList.remove('hidden');
+                submitSpinner.classList.add('hidden');
+                
+                // Tampilkan modal sukses
+                successModal.classList.remove('hidden');
+                
+                // Reset form setelah berhasil
+                form.reset();
+                fileDisplayArea.innerHTML = '';
+                fileDisplayArea.classList.add('hidden');
+                checkFormValidity(); // Nonaktifkan kembali tombol submit
+            }, 2000);
+        });
+
+        // --- LOGIKA MODAL ---
+        closeModalButton.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+        });
+
+        // Tutup modal jika user mengklik di luar area modal
+        window.addEventListener('click', (event) => {
+            if (event.target == successModal) {
+                successModal.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
