@@ -33,7 +33,7 @@ Karena proyek ini murni *frontend* dan tidak memerlukan proses *build*, Anda bis
 
 1.  **Clone repositori ini:**
     ```bash
-    git clone [https://github.com/NAMA_USER/NAMA_REPO.git](https://github.com/NAMA_USER/NAMA_REPO.git)
+    git clone [git@github.com:excelyno/proto-1.git]
     ```
 2.  **Buka file `index.html`:**
     Navigasikan ke direktori proyek dan buka file `index.html` (atau nama file HTML utama Anda) langsung di browser pilihan Anda (misalnya, Google Chrome, Firefox, atau Edge).
